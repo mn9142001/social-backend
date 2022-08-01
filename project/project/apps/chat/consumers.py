@@ -1,9 +1,6 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 
-#from .models import *
-from user.models import User
-
 class ChatConsumer(AsyncWebsocketConsumer):
 	async def connect(self):
 		self.userID = self.scope['user'].id
