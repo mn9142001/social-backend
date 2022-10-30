@@ -13,6 +13,7 @@ class PostView(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         self.permission_classes = (SnippetUpdateDeletePermission,)
+        self.check_object_permissions(request, self.get_object())
         return super().destroy(request, *args, **kwargs)
 
 class CommentViewSet(ModelViewSet):
@@ -21,6 +22,7 @@ class CommentViewSet(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         self.permission_classes = (SnippetUpdateDeletePermission,)
+        self.check_object_permissions(request, self.get_object())
         return super().destroy(request, *args, **kwargs)
 
 class ReplyViewSet(ModelViewSet):
